@@ -31,6 +31,14 @@ static const unsigned int alphas[][3]      = {
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
+/* launcher commands (They must be NULL terminated) */
+static const char* chrome[]      = { "google-chrome-stable", NULL, NULL };
+
+static const Launcher launchers[] = {
+       /* command       name to display */
+	{ chrome,         " " },
+};
+
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
