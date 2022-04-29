@@ -8,7 +8,7 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const Bool viewontag	    = True;     /* Switch View on tag switch */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=16",
-				        "JoyPixels:size=16"
+				        "JoyPixels:size=16",
 				      };
 static const char dmenufont[]       = "JetBrainMono Nerd Font:size=16";
 static const char col_gray1[]       = "#222222";
@@ -33,11 +33,14 @@ static const unsigned int alphas[][3]      = {
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 /* launcher commands (They must be NULL terminated) */
-static const char* chrome[]      = { "google-chrome-stable", NULL, NULL };
+static const char* chromeGitee[]      = { "google-chrome-stable", "https://gitee.com/ChenXin888", NULL };
+static const char* chromeGithub[]      = { "google-chrome-stable", "https://github.com/CcccX2017", NULL };
+static const char* chromecmd[]      = { "google-chrome-stable", NULL, NULL };
 
 static const Launcher launchers[] = {
        /* command       name to display */
-	{ chrome,         " " },
+	{ chromeGitee,         "" },
+	{ chromeGithub,         "" },
 };
 
 /* Lockfile */
@@ -61,8 +64,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "",      tile },    /* first entry is default */
+	{ "",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
 
@@ -90,7 +93,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,             		XK_c, 	   spawn,          {.v = chrome } },
+	{ MODKEY,             		XK_c, 	   spawn,          {.v = chromecmd } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
