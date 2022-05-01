@@ -91,6 +91,7 @@ static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 static const char* volpluscmd[] = {"pamixer", "--allow-boost", "-i", "1",NULL};
 static const char* voldiffcmd[] = {"pamixer", "--allow-boost", "-d", "1",NULL};
+static const char* mutecmd[] = {"pamixer", "-t", NULL};
 static const char* pkill7cmd[] = { "pkill", "-RTMIN+7", "dwmblocks", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -102,6 +103,8 @@ static Key keys[] = {
 	{ MODKEY,                           XK_F11,    spawn,          {.v = pkill7cmd } },
 	{ MODKEY,                           XK_F12,    spawn,          {.v = volpluscmd } },
 	{ MODKEY,                           XK_F12,    spawn,          {.v = pkill7cmd } },
+		{ MODKEY,                       XK_F10,    spawn,          {.v = mutecmd } },
+	{ MODKEY,                           XK_F10,    spawn,          {.v = pkill7cmd } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
