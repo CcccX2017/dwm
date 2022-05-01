@@ -93,6 +93,9 @@ static const char* volpluscmd[] = {"pamixer", "--allow-boost", "-i", "1",NULL};
 static const char* voldiffcmd[] = {"pamixer", "--allow-boost", "-d", "1",NULL};
 static const char* mutecmd[] = {"pamixer", "-t", NULL};
 static const char* pkill7cmd[] = { "pkill", "-RTMIN+7", "dwmblocks", NULL };
+static const char* backlightinccmd[] = { "xbacklight", "-inc", "10", NULL };
+static const char* backlightdeccmd[] = { "xbacklight", "-dec", "10", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -105,6 +108,8 @@ static Key keys[] = {
 	{ MODKEY,                           XK_F12,    spawn,          {.v = pkill7cmd } },
 		{ MODKEY,                       XK_F10,    spawn,          {.v = mutecmd } },
 	{ MODKEY,                           XK_F10,    spawn,          {.v = pkill7cmd } },
+	{ MODKEY,                           XK_F5,    spawn,          {.v = backlightdeccmd } },
+	{ MODKEY,                           XK_F6,    spawn,          {.v = backlightinccmd } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
