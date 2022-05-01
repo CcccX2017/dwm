@@ -30,7 +30,7 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { " ₁", " ₂", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { " ₁", " ₂", " ₃", "﵂ ₄", "5", "6", "7", "8", "9" };
 
 /* launcher commands (They must be NULL terminated) */
 static const char* chromeGitee[]      = { "google-chrome-stable", "https://gitee.com/ChenXin888", NULL };
