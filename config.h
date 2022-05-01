@@ -30,12 +30,13 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { " ₁", " ₂", "3", "4", "5", "6", "7", "8", "9" };
 
 /* launcher commands (They must be NULL terminated) */
 static const char* chromeGitee[]      = { "google-chrome-stable", "https://gitee.com/ChenXin888", NULL };
 static const char* chromeGithub[]      = { "google-chrome-stable", "https://github.com/CcccX2017", NULL };
 static const char* chromecmd[]      = { "google-chrome-stable", NULL, NULL };
+static const char* togglecmd[]      = { "/home/codex/Scripts/t-toggle.sh", NULL, NULL };
 
 static const Launcher launchers[] = {
        /* command       name to display */
@@ -88,12 +89,19 @@ static const char *dmenucmd[] = { "rofi", "-no-lazy-grab", "-show", "drun", "-mo
 static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
-
+static const char* volpluscmd[] = {"pamixer", "--allow-boost", "-i", "1",NULL};
+static const char* voldiffcmd[] = {"pamixer", "--allow-boost", "-d", "1",NULL};
+static const char* pkill7cmd[] = { "pkill", "-RTMIN+7", "dwmblocks", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,             		XK_c, 	   spawn,          {.v = chromecmd } },
+	{ MODKEY|ShiftMask,             XK_t, 	   spawn,          {.v = togglecmd } },
+	{ MODKEY,                           XK_F11,    spawn,          {.v = voldiffcmd } },
+	{ MODKEY,                           XK_F11,    spawn,          {.v = pkill7cmd } },
+	{ MODKEY,                           XK_F12,    spawn,          {.v = volpluscmd } },
+	{ MODKEY,                           XK_F12,    spawn,          {.v = pkill7cmd } },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
